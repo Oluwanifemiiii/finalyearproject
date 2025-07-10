@@ -15,7 +15,7 @@ export const CrowdFundingProvider = ({ children }) => {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [donationHistory, setDonationHistory] = useState({});
-  const [refreshFlag, setRefreshFlag] = useState(false); // 🚀 Auto-refresh flag
+  const [refreshFlag, setRefreshFlag] = useState(false);
 
   useEffect(() => {
     const initializeWallet = async () => {
@@ -28,7 +28,7 @@ export const CrowdFundingProvider = ({ children }) => {
     initializeWallet();
   }, []);
 
-  const triggerRefresh = () => setRefreshFlag((prev) => !prev); // ✅ Function to force re-render
+  const triggerRefresh = () => setRefreshFlag((prev) => !prev);
 
   const connectWallet = async () => {
     if (!window.ethereum) return alert("Please install MetaMask!");
@@ -87,7 +87,7 @@ export const CrowdFundingProvider = ({ children }) => {
     );
 
     const result = await transaction.wait();
-    triggerRefresh(); // ✅ Trigger auto-refresh
+    triggerRefresh();
     return result;
   };
 
@@ -143,7 +143,7 @@ export const CrowdFundingProvider = ({ children }) => {
     });
     await tx.wait();
     await refreshDonations(pId);
-    triggerRefresh(); // ✅ Refresh after donation
+    triggerRefresh();
   };
 
   const getDonations = async (pId) => {

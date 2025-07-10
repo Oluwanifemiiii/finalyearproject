@@ -8,7 +8,7 @@ const CheckContractBalance = () => {
   useEffect(() => {
     const checkBalance = async () => {
       try {
-        const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545"); // Replace if using a testnet
+        const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
         const balance = await provider.getBalance(CrowdFundingAddress);
         console.log(
           "💰 Smart contract balance:",
@@ -23,7 +23,7 @@ const CheckContractBalance = () => {
     checkBalance();
   }, []);
 
-  return null; // No UI needed — runs in the background
+  return null;
 };
 
 export default CheckContractBalance;

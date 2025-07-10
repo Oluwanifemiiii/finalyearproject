@@ -14,7 +14,7 @@ const CreateCampaignForm = ({ titleData = "Create Campaign", createCampaign }) =
   const [isConnected, setIsConnected] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Get connected wallet on load + listen for account changes
+
   useEffect(() => {
     const getConnectedAccount = async () => {
       if (window.ethereum) {
@@ -107,7 +107,7 @@ const CreateCampaignForm = ({ titleData = "Create Campaign", createCampaign }) =
           {titleData}
         </h3>
 
-        {/* Wallet status */}
+
         <div style={{
           marginBottom: "16px",
           padding: "12px",
@@ -151,7 +151,6 @@ const CreateCampaignForm = ({ titleData = "Create Campaign", createCampaign }) =
           )}
         </div>
 
-        {/* Form */}
         <form onSubmit={createNewCampaign}>
           <div style={{ marginBottom: "16px" }}>
             <label style={{

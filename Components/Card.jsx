@@ -18,9 +18,9 @@ const Card = ({
     try {
       await withdrawFunds(pId);
       if (refreshCampaigns) {
-        await refreshCampaigns(); // Use prop-based refresh if passed
+        await refreshCampaigns();
       } else {
-        triggerRefresh(); // fallback to context-based refresh
+        triggerRefresh();
       }
     } catch (err) {
       console.error("Withdraw failed:", err);
@@ -53,12 +53,12 @@ const Card = ({
               key={index}
               className="bg-white border border-black rounded-2xl p-4 flex flex-col justify-between shadow-md"
             >
-              {/* Title */}
+
               <div className="mb-3">
                 <h3 className="text-2xl font-bold mb-1">{campaign.name}</h3>
               </div>
 
-              {/* Progress Bar */}
+
               <div className="w-full h-3 bg-gray-300 rounded-full mb-3">
                 <div
                   className="h-full bg-green-500 rounded-full transition-all"
@@ -66,7 +66,7 @@ const Card = ({
                 />
               </div>
 
-              {/* Raised / Goal / Duration */}
+
               <div className="flex justify-between items-center mb-3">
                 <div className="flex flex-col gap-1 w-2/3">
                   <div className="text-black px-2 py-1 rounded">
@@ -77,7 +77,7 @@ const Card = ({
                   </div>
                 </div>
 
-                {/* Donation Button */}
+
                 <div className="flex flex-col items-end">
                   <button
                     onClick={() => {
@@ -97,7 +97,7 @@ const Card = ({
                     Add Donation
                   </button>
 
-                  {/* Withdraw Button */}
+  
                   {raised >= goal && !isCompleted && isOwner && (
                     <button
                       onClick={() => handleWithdraw(campaign.pId)}
@@ -109,7 +109,7 @@ const Card = ({
                 </div>
               </div>
 
-              {/* Completed label */}
+      
               {isCompleted && (
                 <p className="text-sm text-green-700 font-medium">
                   Campaign Completed ✅

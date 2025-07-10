@@ -1,13 +1,12 @@
-// HeroWithCreateModal.jsx
 "use client";
 import React, { useState } from "react";
-import CreateCampaignForm from "./CreateCampaignForm"; // Adjust the path as necessary
+import CreateCampaignForm from "./CreateCampaignForm";
 const Hero = ({ createCampaign }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      {/* Hero Section */}
+
       <section
         style={{
           background: "black",
@@ -113,7 +112,7 @@ const Hero = ({ createCampaign }) => {
         </div>
       </section>
 
-      {/* Modal - Using inline styles for consistency */}
+
       {showModal && (
         <div
           style={{

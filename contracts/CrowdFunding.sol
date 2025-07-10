@@ -21,7 +21,7 @@ contract CrowdFunding {
     event DonationReceived(uint indexed campaignId, address indexed donator, uint amount);
     event FundsWithdrawn(uint indexed campaignId, address indexed recipient, uint amount);
 
-    /// @notice Create a new campaign
+
     function createCampaign(
         string memory _name,
         string memory _description,
@@ -46,7 +46,7 @@ contract CrowdFunding {
         emit CampaignCreated(campaigns.length - 1, msg.sender);
     }
 
-    /// @notice Donate to a specific campaign
+
     function donateToCampaign(uint256 _id) public payable {
         require(_id < campaigns.length, "Invalid campaign ID");
         Campaign storage campaign = campaigns[_id];
@@ -90,12 +90,10 @@ function withdrawFunds(uint _pId) public {
     emit FundsWithdrawn(_pId, campaign.owner, balance);
 }
 
-    /// @notice View all campaigns
     function getCampaigns() public view returns (Campaign[] memory) {
         return campaigns;
     }
 
-    /// @notice View campaigns created by a specific user
     function getUserCampaigns(address _user) public view returns (Campaign[] memory) {
         uint count = 0;
         for (uint i = 0; i < campaigns.length; i++) {
@@ -115,12 +113,11 @@ function withdrawFunds(uint _pId) public {
         return result;
     }
 
-    /// @notice Get all donators and donations for a campaign
+ 
     function getDonations(uint _pId) public view returns (address[] memory, uint[] memory) {
         return (donators[_pId], donations[_pId]);
     }
 
-    /// @notice Check contract balance (for testing/debugging only)
     function getContractBalance() public view returns (uint) {
         return address(this).balance;
     }

@@ -4,7 +4,7 @@ const fs = require("fs");
 
 async function main() {
   const Contract = await hre.ethers.getContractFactory("CrowdFunding");
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // 👈 replace after deploy
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; 
   const contract = await Contract.attach(contractAddress);
 
   const campaigns = await contract.getCampaigns();
@@ -28,7 +28,6 @@ async function main() {
     console.log("--------------------------------------------------");
   });
 
-  // Optional: Save as JSON (BigInt-safe)
   fs.writeFileSync(
     "allCampaigns.json",
     JSON.stringify(campaigns, (_, v) => (typeof v === "bigint" ? v.toString() : v), 2)

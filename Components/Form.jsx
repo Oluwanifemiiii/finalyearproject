@@ -20,8 +20,8 @@ const Form = ({ setOpenModel, campaign, donateFunction, getDonations }) => {
       const tx = await donateFunction(campaign.pId, amount);
       console.log("✅ Donation successful:", tx);
       alert("🎉 Donation successful!");
-      setAmount(""); // Reset input
-      await fetchDonations(); // Refresh donation list
+      setAmount("");
+      await fetchDonations();
     } catch (error) {
       console.error("❌ Donation failed:", error);
       alert("❌ Donation failed. Please try again.");

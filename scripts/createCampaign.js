@@ -3,7 +3,7 @@ const hre = require("hardhat");
 async function main() {
   const [user] = await hre.ethers.getSigners();
 
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // 👈 replace after deploy
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const Contract = await hre.ethers.getContractFactory("CrowdFunding");
   const contract = await Contract.attach(contractAddress);
 
